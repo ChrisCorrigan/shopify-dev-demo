@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.css.map
+*.js.map
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.*.local
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Shopify CLI & Theme Kit
+.shopify/
+.config.yml
+config.yml
+
+# Shopify store settings (live data)
+config/settings_data.json
+
+# SASS cache
+.sass-cache/
+
+# Optional editor files
+*.swp
+*.swo
+*~
