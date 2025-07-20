@@ -1,0 +1,51 @@
+{% schema %}
+{
+  "name": "Video hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "video",
+      "id": "hero_video",
+      "label": "Hero video (MP4/WebM)"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback",
+      "label": "Mobile fallback image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop the Collection"
+    }
+  ],
+  "presets": [{ "name": "Video hero" }]
+}
+{% endschema %}
+
+{{ 'component-video-hero.css' | asset_url | stylesheet_tag }}
+
+{% assign poster_url = section.settings.fallback | image_url: width: 1200 %}
+
+<section class="video-hero">
+  {% if section.settings.hero_video %}
+    {{
+      section.settings.hero_video
+      | video_tag:
+        autoplay: true,
+        loop: true,
+        muted: true,
+        controls: false,
+        preload: 'auto',
+        class: 'video-hero__video',
+        poster: poster_url
+    }}
+  {% endif %}
+
+  {% if section.settings.heading != blank %}
+    <h1 class="video-hero__heading">
+      {{ section.settings.heading }}
+    </h1>
+  {% endif %}
+</section>

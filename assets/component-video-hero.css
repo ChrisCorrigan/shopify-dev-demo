@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
+
+.video-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-hero__video {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .video-hero__video { max-height: 40vh; }
+}
+
+.video-hero__heading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 6vw, 3.5rem); /* responsive */
+  text-align: center;
+  pointer-events: none; /* clicks pass through */
+}
