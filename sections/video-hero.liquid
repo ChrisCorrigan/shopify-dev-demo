@@ -70,16 +70,18 @@
   {% endif %}
 
 {% if section.settings.heading != blank %}
-  {{ section.settings.heading_font | font_face }}
   <style>
+    {{ section.settings.heading_font | font_face }}
     .video-hero__heading {
       font-family: "{{ section.settings.heading_font.family }}", {{ section.settings.heading_font.fallback_families }};
       font-weight: {{ section.settings.heading_font.weight }};
       color: {{ section.settings.heading_color }};
     }
   </style>
+
   <h1 class="video-hero__heading">
     {{ section.settings.heading }}
   </h1>
 {% endif %}
+
 </section>
