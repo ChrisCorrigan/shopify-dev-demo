@@ -18,6 +18,18 @@
       "id": "heading",
       "label": "Heading",
       "default": "Shop the Collection"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
     }
   ],
   "presets": [{ "name": "Video hero" }]
@@ -26,9 +38,23 @@
 
 {{ 'component-video-hero.css' | asset_url | stylesheet_tag }}
 
-{% assign poster_url = section.settings.fallback | image_url: width: 1200 %}
+{%- assign poster_url = section.settings.fallback | image_url: width: 1200 -%}
 
-<section class="video-hero">
+{%- if section.settings.heading != blank -%}
+  <style>
+    {{ section.settings.heading_font | font_face }}
+  </style>
+{%- endif -%}
+
+<section
+  class="video-hero"
+  style="
+    --video-hero-heading-font-family: '{{ section.settings.heading_font.family }}',
+                                     {{ section.settings.heading_font.fallback_families }};
+    --video-hero-heading-font-weight: {{ section.settings.heading_font.weight }};
+    --video-hero-heading-color: {{ section.settings.heading_color }};
+  "
+>
   {% if section.settings.hero_video %}
     {{
       section.settings.hero_video
