@@ -11,7 +11,9 @@
 }
 
 @media (max-width: 768px) {
-  .video-hero__video { max-height: 40vh; }
+  .video-hero__video {
+    max-height: 40vh;
+  }
 }
 
 .video-hero__heading {
@@ -20,12 +22,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* pull in the dynamic font from the section’s inline vars */
-  font-family: var(--video-hero-heading-font-family);
-  font-weight: var(--video-hero-heading-font-weight);
-  color: var(--video-hero-heading-color);
-
   font-size: clamp(1.75rem, 6vw, 3.5rem);
   text-align: center;
   pointer-events: none;
